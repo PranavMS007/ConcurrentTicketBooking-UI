@@ -1,0 +1,49 @@
+<div class="list-container">
+  <h1>Upcoming Events</h1>
+
+  <div *ngIf="isLoading" class="spinner-container">
+    <mat-spinner></mat-spinner>
+    <p>Loading events...</p>
+  </div>
+
+  <div *ngIf="loadError && !isLoading" class="error-container">
+    <p>{{ loadError }}</p>
+    <button mat-raised-button color="primary" (click)="loadEvents()">Retry</button>
+  </div>
+
+  <div *ngIf="!isLoading && !loadError" class="table-container">
+    <table mat-table [dataSource]="events" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="eventName">
+        <th mat-header-cell *matHeaderCellDef> Event Name </th>
+        <td mat-cell *matCellDef="let event"> {{event.eventName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="availableTickets">
+        <th mat-header-cell *matHeaderCellDef> Available Tickets </th>
+        <td mat-cell *matCellDef="let event">
+          <span [class.low-stock]="event.availableTickets <= 10">
+            {{event.availableTickets}}
+          </span>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let event">
+          <button 
+            mat-raised-button 
+            color="primary"
+            (click)="openBookDialog(event)"
+            [disabled]="event.availableTickets === 0"
+          >
+            {{ event.availableTickets === 0 ? 'Sold Out' : 'Book Tickets' }}
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>

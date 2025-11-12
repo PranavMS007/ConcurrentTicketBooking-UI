@@ -1,0 +1,31 @@
+.list-container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.table-container {
+  overflow-x: auto; 
+}
+
+table {
+  width: 100%;
+}
+
+.low-stock {
+  color: #F44336; 
+  font-weight: bold;
+}
+
+.spinner-container, .error-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  gap: 10px;
+  color: #555;
+}

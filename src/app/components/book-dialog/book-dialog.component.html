@@ -1,0 +1,30 @@
+<h2 mat-dialog-title>Book Tickets for: {{ data.event.eventName }}</h2>
+
+<mat-dialog-content>
+  <p>Available Tickets: {{ data.event.availableTickets }}</p>
+  
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Number of Tickets</mat-label>
+    <input 
+      matInput 
+      type="number" 
+      [(ngModel)]="ticketCount"
+      min="1"
+      [max]="data.event.availableTickets"
+      data-testid="ticket-count-input"
+    >
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button 
+    mat-raised-button 
+    color="primary" 
+    [disabled]="isBooking"
+    (click)="onBook()"
+    data-testid="book-button"
+  >
+    {{ isBooking ? 'Booking...' : 'Book' }}
+  </button>
+</mat-dialog-actions>

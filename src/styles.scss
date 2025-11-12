@@ -1,0 +1,44 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$ticket-ui-primary: mat.define-palette(mat.$indigo-palette);
+$ticket-ui-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$ticket-ui-warn: mat.define-palette(mat.$red-palette);
+
+$ticket-ui-theme: mat.define-light-theme((
+  color: (
+    primary: $ticket-ui-primary,
+    accent: $ticket-ui-accent,
+    warn: $ticket-ui-warn,
+  )
+));
+
+@include mat.all-component-themes($ticket-ui-theme);
+
+html, body { 
+  height: 100%; 
+}
+body { 
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif; 
+  background-color: #f4f4f4; 
+}
+
+main {
+  padding: 20px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.success-snackbar {
+  background-color: #4CAF50; 
+  color: white;
+}
+
+.error-snackbar {
+  background-color: #F44336;
+  color: white;
+}
