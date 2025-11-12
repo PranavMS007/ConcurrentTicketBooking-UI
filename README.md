@@ -54,6 +54,29 @@ The frontend was built using the following key architectural decisions:
 The application will be accessible at: http://localhost:4200
 
 ## UI Screenshots
+1. Event Listing
+   
+![Events list](https://github.com/PranavMS007/ConcurrentTicketBooking-UI/blob/main/images/1.png?raw=true)
+
+2. Book tickets
+   
+![Book tickets](https://github.com/PranavMS007/ConcurrentTicketBooking-UI/blob/main/images/2.png?raw=true)
+
+
+3. successful booking
+   
+![successful booking](https://github.com/PranavMS007/ConcurrentTicketBooking-UI/blob/main/images/3.png?raw=true)
+
+
+4. Sold out listing
+   
+![Sold out listing](https://github.com/PranavMS007/ConcurrentTicketBooking-UI/blob/main/images/4.png?raw=true)
+
+
+5. Trying to book more that the available ticket
+   
+![Failed booking](https://github.com/PranavMS007/ConcurrentTicketBooking-UI/blob/main/images/5.png?raw=true)
+
 
 ## Known Issues and Limitations
    - **No User Context:** The booking request does not include a user ID, as the service focuses solely on concurrent inventory management. All bookings are essentially anonymous.
